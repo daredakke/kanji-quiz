@@ -1,0 +1,57 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://c2afictisxtqn"]
+
+[ext_resource type="FontFile" uid="uid://bd0jmlx3poqsb" path="res://fonts/Dosis-SemiBold.ttf" id="1_ugola"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy6h5"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2h8v"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vc8y"]
+bg_color = Color(0.878431, 0.176471, 0.32549, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21qma"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ImageTexture" id="ImageTexture_fdjl6"]
+
+[resource]
+default_font = ExtResource("1_ugola")
+default_font_size = 24
+Button/font_sizes/font_size = 30
+Button/styles/hover = SubResource("StyleBoxFlat_iy6h5")
+Button/styles/normal = SubResource("StyleBoxFlat_g2h8v")
+Button/styles/pressed = SubResource("StyleBoxFlat_1vc8y")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 30
+LineEdit/font_sizes/font_size = 30
+LineEdit/styles/normal = SubResource("StyleBoxFlat_21qma")
+SpinBox/icons/updown = SubResource("ImageTexture_fdjl6")
