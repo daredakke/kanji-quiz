@@ -7,10 +7,13 @@ enum GAME_STATE { MAIN_MENU, QUIZ, RESULTS }
 var currentState: GAME_STATE
 var SFXBus = AudioServer.get_bus_index("SFX")
 
+var _is_fullscreen: bool = false
+
 @onready var main_menu: Control = $MainMenu
 @onready var quiz: Control = $Quiz
 @onready var results: Control = $Results
 @onready var button_click_sfx: AudioStreamPlayer2D = %ButtonClickSFX
+@onready var fullscreen_button: Button = %FullscreenButton
 
 
 func _ready() -> void:
@@ -83,3 +86,18 @@ func _on_sfx_toggle_button_toggled_off() -> void:
 func _on_quit_button_pressed() -> void:
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
+
+
+func _on_fullscreen_button_pressed() -> void:
+	_is_fullscreen = !_is_fullscreen
+	fullscreen_button.button_pressed = _is_fullscreen
+	
+	if _is_fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		
+		fullscreen_button.text = "WINDOWED"
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		ProjectSettings.set_setting("display/window/size/borderless", false)
+		
+		fullscreen_button.text = "FULLSCREEN"
