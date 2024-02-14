@@ -1,14 +1,16 @@
 class_name Main
 extends Node2D
 
+
+enum GAME_STATE { MAIN_MENU, QUIZ, RESULTS }
+
+var currentState: GAME_STATE
+var SFXBus = AudioServer.get_bus_index("SFX")
+
 @onready var main_menu: Control = $MainMenu
 @onready var quiz: Control = $Quiz
 @onready var results: Control = $Results
 @onready var button_click_sfx: AudioStreamPlayer2D = %ButtonClickSFX
-
-enum GAME_STATE { MAIN_MENU, QUIZ, RESULTS }
-var currentState: GAME_STATE
-var SFXBus = AudioServer.get_bus_index("SFX")
 
 
 func _ready() -> void:
@@ -57,7 +59,6 @@ func _on_main_menu_start_quiz(from, to, questions) -> void:
 	quiz.questions = questions
 
 	quiz.emit_signal("generate_quiz")
-
 	change_state(GAME_STATE.QUIZ)
 
 
@@ -67,7 +68,6 @@ func _on_quiz_view_results(total_questions, correct_questions, time_elapsed) -> 
 	results.time_elapsed = time_elapsed
 
 	results.emit_signal("update_results")
-
 	change_state(GAME_STATE.RESULTS)
 
 

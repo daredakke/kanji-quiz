@@ -1,14 +1,15 @@
 class_name Results
 extends Control
 
-signal update_results
 
-@onready var final_correct_label: Label = %FinalCorrectLabel
-@onready var final_time_label: Label = %FinalTimeLabel
+signal update_results
 
 var total_questions: int
 var correct_questions: int
 var time_elapsed: float
+
+@onready var final_correct_label: Label = %FinalCorrectLabel
+@onready var final_time_label: Label = %FinalTimeLabel
 
 
 func _on_update_results() -> void:
