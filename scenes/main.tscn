@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://buwh2yn5q1toj"]
+[gd_scene load_steps=29 format=3 uid="uid://buwh2yn5q1toj"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_jola0"]
 [ext_resource type="Script" path="res://scenes/Background.gd" id="2_7cguq"]
@@ -19,6 +19,17 @@
 [ext_resource type="AudioStream" uid="uid://bn31ncv6ixoud" path="res://sfx/sfxFail.mp3" id="17_7wbnl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmn2s"]
+content_margin_left = 64.0
+content_margin_top = 24.0
+content_margin_right = 64.0
+content_margin_bottom = 24.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8868"]
 content_margin_left = 64.0
 content_margin_top = 16.0
 content_margin_right = 64.0
@@ -265,6 +276,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nmn2s")
 text = "START"
 icon_alignment = 1
 text_direction = 1
+
+[node name="QuitButton" type="Button" parent="MainMenu/MenuContainer/MenuVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_d8868")
+text = "QUIT"
 
 [node name="SFXToggleButton" type="Button" parent="MainMenu/MenuContainer"]
 custom_minimum_size = Vector2(102, 0)
@@ -662,6 +680,7 @@ text = "MAIN MENU"
 [connection signal="value_changed" from="MainMenu/MenuContainer/MenuVBox/RangeHBox/ToHBox/ToSpinBox" to="MainMenu" method="_on_to_spin_box_value_changed"]
 [connection signal="value_changed" from="MainMenu/MenuContainer/MenuVBox/RangeHBox/QuestionsHBox/QuestionsSpinBox" to="MainMenu" method="_on_questions_spin_box_value_changed"]
 [connection signal="pressed" from="MainMenu/MenuContainer/MenuVBox/StartButton" to="MainMenu" method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/MenuContainer/MenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="toggled" from="MainMenu/MenuContainer/SFXToggleButton" to="MainMenu/MenuContainer/SFXToggleButton" method="_on_toggled"]
 [connection signal="toggled_off" from="MainMenu/MenuContainer/SFXToggleButton" to="." method="_on_sfx_toggle_button_toggled_off"]
 [connection signal="toggled_on" from="MainMenu/MenuContainer/SFXToggleButton" to="." method="_on_sfx_toggle_button_toggled_on"]
